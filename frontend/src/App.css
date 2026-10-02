@@ -19,6 +19,8 @@ textarea {
   min-height: 100vh;
 }
 
+/* Header */
+
 .header {
   background: #111827;
   color: white;
@@ -35,7 +37,7 @@ textarea {
 }
 
 .logo span {
-  color: #6366f1;
+  color: #818cf8;
 }
 
 .header p {
@@ -44,11 +46,15 @@ textarea {
   font-size: 15px;
 }
 
+/* Main Container */
+
 .container {
   width: min(1100px, 92%);
   margin: auto;
   padding: 55px 0;
 }
+
+/* Hero */
 
 .hero {
   text-align: center;
@@ -74,6 +80,8 @@ textarea {
   line-height: 1.7;
 }
 
+/* Analyzer Card */
+
 .analyzer-card {
   background: white;
   padding: 35px;
@@ -92,6 +100,8 @@ textarea {
   font-size: 16px;
 }
 
+/* Upload */
+
 .upload-box {
   border: 2px dashed #cbd5e1;
   border-radius: 15px;
@@ -100,6 +110,7 @@ textarea {
   background: #f8fafc;
   position: relative;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .upload-box:hover {
@@ -142,6 +153,8 @@ textarea {
   font-size: 16px;
 }
 
+/* Job Description */
+
 textarea {
   width: 100%;
   resize: vertical;
@@ -151,12 +164,15 @@ textarea {
   font-size: 15px;
   line-height: 1.6;
   outline: none;
+  transition: 0.2s;
 }
 
 textarea:focus {
   border-color: #6366f1;
   box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
 }
+
+/* Analyze Button */
 
 .analyze-button {
   width: 100%;
@@ -182,13 +198,18 @@ textarea:focus {
   transform: none;
 }
 
+/* Error */
+
 .error {
   background: #fef2f2;
   color: #b91c1c;
   padding: 14px;
   border-radius: 10px;
   margin-bottom: 20px;
+  border: 1px solid #fecaca;
 }
+
+/* Results */
 
 .results {
   margin-top: 45px;
@@ -199,6 +220,8 @@ textarea:focus {
   font-size: 32px;
   margin-bottom: 25px;
 }
+
+/* Score Card */
 
 .score-card {
   background: white;
@@ -223,6 +246,7 @@ textarea:focus {
   font-size: 30px;
   font-weight: 800;
   flex-shrink: 0;
+  border: 8px solid #e0e7ff;
 }
 
 .score-card h3 {
@@ -235,6 +259,8 @@ textarea:focus {
   color: #64748b;
   line-height: 1.6;
 }
+
+/* Result Grid */
 
 .result-grid {
   display: grid;
@@ -256,34 +282,70 @@ textarea:focus {
   margin-bottom: 20px;
 }
 
+/* Skill Chips */
+
 .skills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 15px;
 }
 
 .skills span {
-  padding: 8px 13px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
   border-radius: 20px;
-  background: #eef2ff;
-  color: #4338ca;
-  font-size: 13px;
+  background: #f1f5f9;
+  color: #1e293b;
+  font-size: 14px;
   font-weight: 600;
+  border: 1px solid #e2e8f0;
+  white-space: nowrap;
+  transition: 0.2s;
 }
+
+.skills span:hover {
+  transform: translateY(-1px);
+}
+
+/* Matched Skills */
 
 .matched .skills span {
   background: #ecfdf5;
   color: #047857;
+  border-color: #a7f3d0;
 }
+
+/* Missing Skills */
 
 .missing .skills span {
   background: #fff7ed;
   color: #c2410c;
+  border-color: #fed7aa;
 }
+
+/* Resume Skills */
 
 .resume-skills {
   margin-top: 25px;
 }
+
+.resume-skills .skills span {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
+}
+
+/* Empty Results Text */
+
+.result-card p {
+  color: #64748b;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Footer */
 
 footer {
   text-align: center;
@@ -291,6 +353,8 @@ footer {
   color: #64748b;
   font-size: 14px;
 }
+
+/* Responsive Design */
 
 @media (max-width: 768px) {
   .header {
@@ -300,6 +364,10 @@ footer {
 
   .hero h1 {
     font-size: 35px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 
   .analyzer-card {
@@ -313,5 +381,48 @@ footer {
   .score-card {
     flex-direction: column;
     text-align: center;
+  }
+
+  .score {
+    width: 110px;
+    height: 110px;
+    font-size: 27px;
+  }
+
+  .skills span {
+    font-size: 13px;
+    padding: 7px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 94%;
+    padding: 35px 0;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .analyzer-card {
+    padding: 18px;
+  }
+
+  .upload-box {
+    padding: 28px 15px;
+  }
+
+  .results h2 {
+    font-size: 27px;
+  }
+
+  .score-card {
+    padding: 24px;
+  }
+
+  .result-card,
+  .resume-skills {
+    padding: 22px;
   }
 }
