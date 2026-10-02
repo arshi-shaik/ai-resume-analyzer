@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 const API_URL =
-  "https://crispy-carnival-x5495rqj5r4w369j9-8000.app.github.dev";
+  "https://ai-resume-analyzer-9re2.onrender.com";
 
 function App() {
   const [resume, setResume] = useState(null);
@@ -46,7 +46,7 @@ function App() {
       setResult(data);
     } catch (err) {
       setError(
-        "Unable to connect to the backend. Make sure your FastAPI server is running."
+        "Unable to connect to the backend. Please try again."
       );
     } finally {
       setLoading(false);
@@ -55,6 +55,7 @@ function App() {
 
   return (
     <div className="app">
+
       <header className="header">
         <div className="logo">
           <span>AI</span> Resume Analyzer
@@ -86,6 +87,7 @@ function App() {
             <label>Upload Resume</label>
 
             <div className="upload-box">
+
               <input
                 type="file"
                 accept=".pdf"
@@ -101,18 +103,29 @@ function App() {
                 </div>
               ) : (
                 <div className="upload-text">
-                  <div className="upload-icon">📄</div>
-                  <strong>Choose your resume PDF</strong>
-                  <span>PDF files only</span>
+                  <div className="upload-icon">
+                    📄
+                  </div>
+
+                  <strong>
+                    Choose your resume PDF
+                  </strong>
+
+                  <span>
+                    PDF files only
+                  </span>
                 </div>
               )}
+
             </div>
 
           </div>
 
           <div className="input-section">
 
-            <label>Job Description</label>
+            <label>
+              Job Description
+            </label>
 
             <textarea
               value={jobDescription}
@@ -136,7 +149,9 @@ function App() {
             onClick={analyzeResume}
             disabled={loading}
           >
-            {loading ? "Analyzing Resume..." : "Analyze Resume"}
+            {loading
+              ? "Analyzing Resume..."
+              : "Analyze Resume"}
           </button>
 
         </section>
@@ -144,7 +159,9 @@ function App() {
         {result && (
           <section className="results">
 
-            <h2>Analysis Results</h2>
+            <h2>
+              Analysis Results
+            </h2>
 
             <div className="score-card">
 
@@ -153,7 +170,10 @@ function App() {
               </div>
 
               <div>
-                <h3>Resume Match</h3>
+                <h3>
+                  Resume Match
+                </h3>
+
                 <p>
                   Your resume matches{" "}
                   {result.match_percentage}% of the
@@ -166,53 +186,69 @@ function App() {
             <div className="result-grid">
 
               <div className="result-card matched">
+
                 <h3>
                   ✅ Matched Skills
                 </h3>
 
                 {result.matched_skills.length > 0 ? (
                   <div className="skills">
+
                     {result.matched_skills.map((skill) => (
                       <span key={skill}>
                         {skill}
                       </span>
                     ))}
+
                   </div>
                 ) : (
-                  <p>No matching skills found.</p>
+                  <p>
+                    No matching skills found.
+                  </p>
                 )}
+
               </div>
 
               <div className="result-card missing">
+
                 <h3>
                   ⚠️ Missing Skills
                 </h3>
 
                 {result.missing_skills.length > 0 ? (
                   <div className="skills">
+
                     {result.missing_skills.map((skill) => (
                       <span key={skill}>
                         {skill}
                       </span>
                     ))}
+
                   </div>
                 ) : (
-                  <p>No missing skills detected.</p>
+                  <p>
+                    No missing skills detected.
+                  </p>
                 )}
+
               </div>
 
             </div>
 
             <div className="resume-skills">
 
-              <h3>Skills Detected in Your Resume</h3>
+              <h3>
+                Skills Detected in Your Resume
+              </h3>
 
               <div className="skills">
+
                 {result.resume_skills.map((skill) => (
                   <span key={skill}>
                     {skill}
                   </span>
                 ))}
+
               </div>
 
             </div>
@@ -227,6 +263,7 @@ function App() {
           AI Resume Analyzer • Built with React + FastAPI
         </p>
       </footer>
+
     </div>
   );
 }
